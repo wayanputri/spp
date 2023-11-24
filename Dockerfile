@@ -10,7 +10,7 @@ COPY ./ /app
 
 RUN go mod tidy
 
-# create executable file with name "belajar_go"
+# create executable file with name "projeck"
 RUN go build -o projeck
 
 # run executable file
