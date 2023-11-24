@@ -9,6 +9,7 @@ import (
 func main() {
 	app := fiber.New()
 	app.Get("/api/spp", handler.Get)
+	// ADD THIS
 	app.Post("/api/spp", handler.Create)
 	app.Listen(":8080")
 }
