@@ -10,8 +10,8 @@ COPY ./ /app
 
 RUN go mod tidy
 
-# create executable file with name "belajar_go"
-RUN go build -o belajar_go
+# create executable file with name "belajar_go_project"
+RUN go build -o belajar_go_project
 
 # run executable file
-CMD ["./belajar_go"]
+CMD ["./belajar_go_project"]
