@@ -8,7 +8,7 @@ WORKDIR /app
 COPY . .
 
 # Build the application
-RUN go build -o projeck
+RUN go build -o belajar
 
 # Use a minimal base image
 FROM alpine:latest
@@ -17,7 +17,7 @@ FROM alpine:latest
 WORKDIR /app
 
 # Copy the binary from the builder stage
-COPY --from=builder /app/projeck .
+COPY --from=builder /app/belajar .
 
 # Command to run the executable
-CMD ["./projeck"]
+CMD ["./belajar"]
