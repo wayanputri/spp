@@ -1,9 +1,10 @@
-module pembiayaan
+module project
 
 go 1.21.3
 
 require (
 	github.com/gofiber/fiber/v2 v2.51.0
+	github.com/lib/pq v1.10.9
 	github.com/spf13/viper v1.17.0
 )
 

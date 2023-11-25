@@ -1,4 +1,4 @@
-FROM golang:1.20-alpine
+FROM golang:1.21-alpine
 
 # create directory folder
 RUN mkdir /app
@@ -10,8 +10,8 @@ COPY ./ /app
 
 RUN go mod tidy
 
-# create executable file with name "belajar_go_project"
-RUN go build -o belajar_go_project
+# create executable file with name "sipd"
+RUN go build -o sipd
 
 # run executable file
-CMD ["./belajar_go_project"]
+CMD ["./sipd"]

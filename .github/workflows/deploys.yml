@@ -31,7 +31,7 @@ jobs:
           context: .
           file: ./Dockerfile
           push: true
-          tags: ${{ secrets.DOCKERHUB_USERNAME }}/project-images:latest
+          tags: ${{ secrets.DOCKERHUB_USERNAME }}/sipd-images:latest
 
       - name: Connect to server using SSH
         uses: appleboy/ssh-action@v0.1.10
@@ -41,8 +41,8 @@ jobs:
           key: ${{ secrets.KEY }}
           port: ${{ secrets.PORT }}
           script: |
-            docker stop projectajaContainer
-            docker rm projectajaContainer
-            docker rmi ${{ secrets.DOCKERHUB_USERNAME }}/project-images
-            docker pull ${{ secrets.DOCKERHUB_USERNAME }}/project-images
-            docker run -d -p 80:8080 -e JWT_KEY=${{ secrets.JWT_KEY }} -e DBUSER=${{ secrets.DBUSER }} -e DBPASS=${{ secrets.DBPASS }} -e DBHOST=${{ secrets.DBHOST }} -e DBPORT=${{ secrets.DBPORT }} -e DBNAME=${{ secrets.DBNAME }} --name projectajaContainer ${{ secrets.DOCKERHUB_USERNAME }}/project-images:latest
+            docker stop sipdContainer
+            docker rm sipdContainer
+            docker rmi ${{ secrets.DOCKERHUB_USERNAME }}/sipd-images
+            docker pull ${{ secrets.DOCKERHUB_USERNAME }}/sipd-images
+            docker run -d -p 80:8080 -e JWT_KEY=${{ secrets.JWT_KEY }} -e DBUSER=${{ secrets.DBUSER }} -e DBPASS=${{ secrets.DBPASS }} -e DBHOST=${{ secrets.DBHOST }} -e DBPORT=${{ secrets.DBPORT }} -e DBNAME=${{ secrets.DBNAME }} --name sipdContainer ${{ secrets.DOCKERHUB_USERNAME }}/sipd-images:latest

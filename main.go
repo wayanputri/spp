@@ -1,15 +1,17 @@
 package main
 
 import (
-	"pembiayaan/features/pembiayaan/SPP/handler"
+	"project/app/config"
+	"project/app/database"
+	"project/app/router"
 
 	"github.com/gofiber/fiber/v2"
 )
 
 func main() {
+	cfg := config.InitConfig()
+	postgres := database.InitPostgres(cfg)
 	app := fiber.New()
-	app.Get("/api/spp", handler.Get)
-	// ADD THIS
-	app.Post("/api/spp", handler.Create)
+	router.InitRouter(app, postgres)
 	app.Listen(":8080")
 }
